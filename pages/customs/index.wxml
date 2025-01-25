@@ -1,0 +1,77 @@
+<view class="container">
+  <van-tabs active="{{ activeTab }}" bind:change="onTabChange" color="#1B4B79">
+    <!-- 税率查询 -->
+    <van-tab title="税率查询" name="tariff">
+      <view class="section">
+        <van-field
+          model:value="{{ hsCode }}"
+          label="HS编码"
+          placeholder="请输入海关编码"
+          border="{{ false }}"
+        />
+        <van-field
+          model:value="{{ productName }}"
+          label="商品名称"
+          placeholder="请输入商品名称"
+          border="{{ false }}"
+        />
+        <view class="button-group">
+          <van-button color="#1B4B79" block bind:click="onQueryTariff">
+            查询税率
+          </van-button>
+        </view>
+      </view>
+
+      <!-- 查询结果 -->
+      <block wx:if="{{ tariffResult }}">
+        <van-cell-group title="税率信息" title-class="group-title">
+          <van-cell title="商品名称" value="{{ tariffResult.productName }}" />
+          <van-cell title="进口税率" value="{{ tariffResult.importTariff }}" />
+          <van-cell title="出口税率" value="{{ tariffResult.exportTariff }}" />
+          <van-cell title="增值税率" value="{{ tariffResult.vatRate }}" />
+        </van-cell-group>
+
+        <van-cell-group title="优惠税率" title-class="group-title">
+          <van-cell title="RCEP" value="{{ tariffResult.preferentialRate.RCEP }}" />
+          <van-cell title="CPTPP" value="{{ tariffResult.preferentialRate.CPTPP }}" />
+          <van-cell title="备注" label="{{ tariffResult.notes }}" />
+        </van-cell-group>
+      </block>
+    </van-tab>
+
+    <!-- 通关状态 -->
+    <van-tab title="通关状态" name="status">
+      <view class="section">
+        <van-field
+          model:value="{{ declareNo }}"
+          label="申报编号"
+          placeholder="请输入报关单号"
+          border="{{ false }}"
+        />
+        <view class="button-group">
+          <van-button color="#1B4B79" block bind:click="onQueryStatus">
+            查询状态
+          </van-button>
+        </view>
+      </view>
+
+      <!-- 状态结果 -->
+      <block wx:if="{{ statusResult }}">
+        <van-cell-group title="当前状态" title-class="group-title">
+          <van-cell title="通关状态">
+            <van-tag type="primary" color="#1B4B79">{{ statusResult.status }}</van-tag>
+          </van-cell>
+        </van-cell-group>
+
+        <van-cell-group title="处理流程" title-class="group-title">
+          <van-steps
+            steps="{{ statusResult.timeline }}"
+            active="{{ statusResult.timeline.length - 1 }}"
+            direction="vertical"
+            active-color="#1B4B79"
+          />
+        </van-cell-group>
+      </block>
+    </van-tab>
+  </van-tabs>
+</view> 

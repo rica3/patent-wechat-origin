@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/industry-news/index",
+    "pages/news-detail/index",
+    "pages/competitor/index",
+    "pages/patent/index",
+    "pages/customs/index",
+    "pages/patent-detail/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "行业资讯",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#1B4B79",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/industry-news/index",
+        "text": "头条/行业",
+        "iconPath": "images/tabs/news.png",
+        "selectedIconPath": "images/tabs/news-active.png"
+      },
+      {
+        "pagePath": "pages/competitor/index",
+        "text": "对手/客户",
+        "iconPath": "images/tabs/competitor.png",
+        "selectedIconPath": "images/tabs/competitor-active.png"
+      },
+      {
+        "pagePath": "pages/patent/index",
+        "text": "专利经营",
+        "iconPath": "images/tabs/patent.png",
+        "selectedIconPath": "images/tabs/patent-active.png"
+      },
+      {
+        "pagePath": "pages/customs/index",
+        "text": "海关税务",
+        "iconPath": "images/tabs/customs.png",
+        "selectedIconPath": "images/tabs/customs-active.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+} 

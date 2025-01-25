@@ -1,0 +1,66 @@
+<view class="container">
+  <view class="header">
+    <view class="title">{{ patent.title }}</view>
+    <view class="meta">
+      <van-tag type="primary" custom-class="tag">{{ patent.legalStatus }}</van-tag>
+      <text class="date">申请日：{{ patent.applicationDate }}</text>
+    </view>
+  </view>
+
+  <van-cell-group title="基本信息">
+    <van-cell title="申请人" value="{{ patent.applicant }}" />
+    <van-cell title="发明人" value="{{ patent.inventors.join('、') }}" />
+    <van-cell title="公开日" value="{{ patent.publicationDate }}" />
+    <van-cell title="IPC分类" value="{{ patent.ipcClass.join('、') }}" />
+  </van-cell-group>
+
+  <view class="section">
+    <view class="section-title">摘要</view>
+    <view class="section-content">{{ patent.abstract }}</view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">权利要求</view>
+    <view class="section-content">
+      <view 
+        wx:for="{{ patent.claims }}" 
+        wx:key="*this"
+        class="claim-item"
+      >
+        {{ item }}
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">引用专利</view>
+    <view class="section-content">
+      <view 
+        wx:for="{{ patent.citedPatents }}" 
+        wx:key="*this"
+        class="cite-item"
+      >
+        {{ item }}
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">相似专利</view>
+    <view class="section-content">
+      <view 
+        wx:for="{{ similarPatents }}" 
+        wx:key="id"
+        class="similar-item"
+        bind:tap="onSimilarPatentClick"
+        data-patent="{{ item }}"
+      >
+        <view class="similar-title">{{ item.title }}</view>
+        <view class="similar-meta">
+          <text class="similar-applicant">{{ item.applicant }}</text>
+          <text class="similar-score">相似度：{{ item.similarityScore * 100 }}%</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 

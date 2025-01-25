@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "专利经营",
+  "usingComponents": {
+    "van-tabs": "/miniprogram_npm/@vant/weapp/tabs/index",
+    "van-tab": "/miniprogram_npm/@vant/weapp/tab/index",
+    "van-field": "/miniprogram_npm/@vant/weapp/field/index",
+    "van-button": "/miniprogram_npm/@vant/weapp/button/index",
+    "van-uploader": "/miniprogram_npm/@vant/weapp/uploader/index",
+    "van-cell": "/miniprogram_npm/@vant/weapp/cell/index",
+    "van-cell-group": "/miniprogram_npm/@vant/weapp/cell-group/index",
+    "van-tag": "/miniprogram_npm/@vant/weapp/tag/index",
+    "van-loading": "/miniprogram_npm/@vant/weapp/loading/index"
+  }
+} 

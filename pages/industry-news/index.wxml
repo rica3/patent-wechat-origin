@@ -1,0 +1,55 @@
+<view class="news-container">
+  <van-tabs active="{{ activeTab }}" bind:change="onTabChange" color="#FF8C00">
+    <van-tab 
+      wx:for="{{ categories }}" 
+      wx:key="key" 
+      title="{{ item.tab }}" 
+      name="{{ item.key }}"
+    >
+      <view class="news-list">
+        <!-- 加载状态 -->
+        <block wx:if="{{ loading }}">
+          <view class="loading-container">
+            <van-loading size="24px" vertical>加载中...</van-loading>
+          </view>
+        </block>
+
+        <!-- 空状态 -->
+        <block wx:elif="{{ !newsData[item.key].length }}">
+          <van-empty description="暂无数据" />
+        </block>
+
+        <!-- 新闻列表 -->
+        <block wx:else>
+          <view 
+            class="news-item" 
+            wx:for="{{ newsData[item.key] }}" 
+            wx:key="id" 
+            wx:for-item="news"
+            bind:tap="onNewsClick"
+            data-news="{{ news }}"
+          >
+            <van-card
+              title="{{ news.title }}"
+              desc="{{ news.summary }}"
+              custom-class="news-card"
+            >
+              <view slot="tags">
+                <van-tag 
+                  color="{{ categories[activeTabIndex].color }}"
+                  custom-class="news-tag"
+                >
+                  {{ categories[activeTabIndex].tab }}
+                </van-tag>
+              </view>
+              <view slot="footer" class="news-footer">
+                <text class="news-source">{{ news.source }}</text>
+                <text class="news-date">{{ news.date }}</text>
+              </view>
+            </van-card>
+          </view>
+        </block>
+      </view>
+    </van-tab>
+  </van-tabs>
+</view> 

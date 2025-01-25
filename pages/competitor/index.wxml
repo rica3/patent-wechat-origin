@@ -1,0 +1,74 @@
+<view class="container">
+  <!-- 搜索栏 -->
+  <van-search
+    value="{{ keyword }}"
+    placeholder="请输入关键词或竞争对手名称"
+    bind:change="onSearchChange"
+    bind:search="onSearch"
+  />
+
+  <!-- 筛选菜单 -->
+  <van-dropdown-menu>
+    <van-dropdown-item
+      title="申请时间"
+      value="{{ dateRange }}"
+      options="{{ dateRangeOptions }}"
+      bind:change="onDateRangeChange"
+    />
+    <van-dropdown-item
+      title="法律状态"
+      value="{{ legalStatus }}"
+      options="{{ legalStatusOptions }}"
+      bind:change="onLegalStatusChange"
+    />
+    <van-dropdown-item
+      title="技术领域"
+      value="{{ ipcClass }}"
+      options="{{ ipcClassOptions }}"
+      bind:change="onIpcClassChange"
+    />
+  </van-dropdown-menu>
+
+  <!-- 搜索结果 -->
+  <view class="search-results">
+    <!-- 加载状态 -->
+    <view class="loading-container" wx:if="{{ loading }}">
+      <van-loading size="24px" vertical>加载中...</van-loading>
+    </view>
+
+    <!-- 空状态 -->
+    <van-empty 
+      wx:elif="{{ !patents.length }}" 
+      description="暂无搜索结果" 
+    />
+
+    <!-- 专利列表 -->
+    <view 
+      wx:else
+      class="patent-list"
+    >
+      <view 
+        class="patent-item"
+        wx:for="{{ patents }}"
+        wx:key="id"
+        bind:tap="onPatentClick"
+        data-patent="{{ item }}"
+      >
+        <van-card
+          title="{{ item.title }}"
+          desc="{{ item.abstract }}"
+          thumb="{{ item.thumb }}"
+        >
+          <view slot="tags">
+            <van-tag type="primary" custom-class="tag">{{ item.legalStatus }}</van-tag>
+            <van-tag type="success" custom-class="tag">{{ item.ipcClass[0] }}</van-tag>
+          </view>
+          <view slot="footer" class="card-footer">
+            <text class="applicant">{{ item.applicant }}</text>
+            <text class="date">申请日：{{ item.applicationDate }}</text>
+          </view>
+        </van-card>
+      </view>
+    </view>
+  </view>
+</view> 

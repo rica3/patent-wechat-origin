@@ -1,0 +1,129 @@
+.container {
+  min-height: 100vh;
+  background: #f7f8fa;
+}
+
+.section {
+  background: #fff;
+  padding: 32rpx;
+  margin-bottom: 16rpx;
+  border-radius: 8rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.button-group {
+  margin-top: 32rpx;
+}
+
+.group-title {
+  font-size: 32rpx !important;
+  font-weight: bold !important;
+  color: #1B4B79 !important;
+}
+
+.draft-section {
+  padding: 32rpx;
+  background: #fff;
+  margin-top: 2rpx;
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #1B4B79;
+  margin-bottom: 16rpx;
+}
+
+.section-content {
+  font-size: 26rpx;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 16rpx;
+  text-align: justify;
+}
+
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  padding: 24rpx 32rpx;
+  background: #fff;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.suggestion-text {
+  margin-left: 16rpx;
+  font-size: 26rpx;
+  color: #333;
+}
+
+.point-item {
+  display: flex;
+  align-items: center;
+  padding: 24rpx 32rpx;
+  background: #fff;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.point-text {
+  margin-left: 16rpx;
+  font-size: 26rpx;
+  color: #333;
+}
+
+.risk-item {
+  padding: 24rpx 32rpx;
+  background: #fff;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.risk-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.risk-title text {
+  margin-left: 16rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.risk-detail {
+  display: flex;
+  justify-content: space-between;
+  font-size: 26rpx;
+}
+
+.similarity {
+  color: #1B4B79;
+  font-weight: bold;
+}
+
+.risk-suggestion {
+  color: #FF8C00;
+  font-weight: bold;
+}
+
+/* 上传组件样式 */
+::-webkit-file-upload-button {
+  background: #1B4B79;
+  color: white;
+  border: none;
+  padding: 8rpx 16rpx;
+  border-radius: 4rpx;
+}
+
+/* 输入框聚焦时的颜色 */
+.van-field__input--focus {
+  border-color: #1B4B79 !important;
+}
+
+/* 标签页样式 */
+.van-tab--active {
+  color: #1B4B79 !important;
+  font-weight: bold !important;
+}
+
+.van-tabs__line {
+  background-color: #1B4B79 !important;
+} 

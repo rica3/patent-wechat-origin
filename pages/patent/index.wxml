@@ -1,0 +1,129 @@
+<view class="container">
+  <van-tabs active="{{ activeTab }}" bind:change="onTabChange" color="#1B4B79">
+    <!-- 专利生成 -->
+    <van-tab title="专利生成" name="generate">
+      <view class="section">
+        <van-field
+          model:value="{{ techDescription }}"
+          type="textarea"
+          placeholder="请输入技术要点或创意描述"
+          autosize="{{ {minHeight: 100} }}"
+          border="{{ false }}"
+        />
+        <van-uploader
+          file-list="{{ fileList }}"
+          bind:after-read="afterRead"
+          bind:delete="onDelete"
+          accept="file"
+          upload-icon="plus"
+          upload-text="上传文件"
+        />
+        <view class="button-group">
+          <van-button 
+            color="#1B4B79" 
+            block 
+            loading="{{ generating }}" 
+            bind:click="onGenerate"
+          >
+            生成专利草稿
+          </van-button>
+        </view>
+      </view>
+
+      <!-- 生成结果 -->
+      <block wx:if="{{ draftResult }}">
+        <van-cell-group title="生成结果" title-class="group-title">
+          <van-cell title="专利名称" value="{{ draftResult.title }}" />
+          <view class="draft-section">
+            <view class="section-title">权利要求</view>
+            <view 
+              wx:for="{{ draftResult.claims }}" 
+              wx:key="*this"
+              class="section-content"
+            >{{ item }}</view>
+          </view>
+          <view class="draft-section">
+            <view class="section-title">说明书</view>
+            <view class="section-content">{{ draftResult.description }}</view>
+          </view>
+        </van-cell-group>
+
+        <van-cell-group title="优化建议" title-class="group-title">
+          <view 
+            wx:for="{{ draftResult.suggestions }}" 
+            wx:key="text"
+            class="suggestion-item"
+          >
+            <van-tag 
+              type="primary" 
+              color="{{ item.type === 'warning' ? '#FF8C00' : '#1B4B79' }}"
+            >
+              {{ item.type === 'warning' ? '警告' : '建议' }}
+            </van-tag>
+            <text class="suggestion-text">{{ item.text }}</text>
+          </view>
+        </van-cell-group>
+      </block>
+    </van-tab>
+
+    <!-- 专利设卡 -->
+    <van-tab title="专利设卡" name="barrier">
+      <view class="section">
+        <van-field
+          model:value="{{ technology }}"
+          type="textarea"
+          placeholder="请输入需要分析的技术领域或关键词"
+          autosize="{{ {minHeight: 100} }}"
+          border="{{ false }}"
+        />
+        <view class="button-group">
+          <van-button 
+            color="#1B4B79" 
+            block 
+            loading="{{ analyzing }}" 
+            bind:click="onAnalyze"
+          >
+            分析专利布局
+          </van-button>
+        </view>
+      </view>
+
+      <!-- 分析结果 -->
+      <block wx:if="{{ barrierResult }}">
+        <van-cell-group 
+          wx:for="{{ barrierResult.barriers }}" 
+          wx:key="title"
+          title="{{ item.title }}"
+          title-class="group-title"
+        >
+          <view 
+            wx:for="{{ item.points }}" 
+            wx:key="*this"
+            wx:for-item="point"
+            class="point-item"
+          >
+            <van-tag type="primary" color="#1B4B79">{{ index + 1 }}</van-tag>
+            <text class="point-text">{{ point }}</text>
+          </view>
+        </van-cell-group>
+
+        <van-cell-group title="风险提示" title-class="group-title">
+          <view 
+            wx:for="{{ barrierResult.risks }}" 
+            wx:key="title"
+            class="risk-item"
+          >
+            <view class="risk-title">
+              <van-tag type="primary" color="#FF8C00">风险</van-tag>
+              <text>{{ item.title }}</text>
+            </view>
+            <view class="risk-detail">
+              <text class="similarity">相似度：{{ item.similarity * 100 }}%</text>
+              <text class="risk-suggestion">{{ item.suggestion }}</text>
+            </view>
+          </view>
+        </van-cell-group>
+      </block>
+    </van-tab>
+  </van-tabs>
+</view> 

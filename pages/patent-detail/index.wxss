@@ -1,0 +1,86 @@
+.container {
+  min-height: 100vh;
+  background: #f7f8fa;
+  padding-bottom: 32rpx;
+}
+
+.header {
+  background: #fff;
+  padding: 32rpx;
+  margin-bottom: 16rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 24rpx;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+}
+
+.tag {
+  margin-right: 16rpx;
+}
+
+.date {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.section {
+  background: #fff;
+  padding: 32rpx;
+  margin-top: 16rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 24rpx;
+}
+
+.section-content {
+  color: #666;
+  line-height: 1.6;
+}
+
+.claim-item {
+  margin-bottom: 16rpx;
+}
+
+.cite-item {
+  margin-bottom: 12rpx;
+  color: #1989fa;
+}
+
+.similar-item {
+  padding: 24rpx;
+  background: #f5f5f5;
+  border-radius: 8rpx;
+  margin-bottom: 16rpx;
+}
+
+.similar-title {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.similar-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+}
+
+.similar-applicant {
+  color: #666;
+}
+
+.similar-score {
+  color: #ff8c00;
+} 

@@ -1,0 +1,42 @@
+.container {
+  min-height: 100vh;
+  background: #f7f8fa;
+}
+
+.search-results {
+  padding: 16rpx;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 48rpx 0;
+}
+
+.patent-list {
+  padding-bottom: 32rpx;
+}
+
+.patent-item {
+  margin-bottom: 16rpx;
+  background: #fff;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.tag {
+  margin-right: 8rpx;
+}
+
+.card-footer {
+  margin-top: 16rpx;
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.applicant {
+  color: #666;
+} 

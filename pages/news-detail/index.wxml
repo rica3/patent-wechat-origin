@@ -1,0 +1,15 @@
+<view class="detail-container">
+  <view class="detail-header">
+    <text class="detail-title">{{ news.title }}</text>
+    <view class="detail-meta">
+      <van-tag color="{{ categoryColor }}">{{ categoryName }}</van-tag>
+      <text class="detail-source">{{ news.source }}</text>
+      <text class="detail-date">{{ news.date }}</text>
+    </view>
+  </view>
+  
+  <view class="detail-content">
+    <view class="detail-summary">{{ news.summary }}</view>
+    <view class="detail-body">{{ news.content }}</view>
+  </view>
+</view> 

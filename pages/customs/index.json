@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "海关税务",
+  "usingComponents": {
+    "van-tabs": "/miniprogram_npm/@vant/weapp/tabs/index",
+    "van-tab": "/miniprogram_npm/@vant/weapp/tab/index",
+    "van-field": "/miniprogram_npm/@vant/weapp/field/index",
+    "van-button": "/miniprogram_npm/@vant/weapp/button/index",
+    "van-cell": "/miniprogram_npm/@vant/weapp/cell/index",
+    "van-cell-group": "/miniprogram_npm/@vant/weapp/cell-group/index",
+    "van-tag": "/miniprogram_npm/@vant/weapp/tag/index",
+    "van-steps": "/miniprogram_npm/@vant/weapp/steps/index"
+  }
+} 

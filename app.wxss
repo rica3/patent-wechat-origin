@@ -1,0 +1,21 @@
+page {
+  background: #f7f8fa;
+}
+
+.container {
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.page-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48rpx 0;
+}
+
+.page-empty {
+  text-align: center;
+  padding: 48rpx 32rpx;
+  color: #999;
+} 
